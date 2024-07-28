@@ -2,11 +2,15 @@ import Button from '@mui/material/Button'
 import Stack from '@mui/material/Stack'
 import { pink } from '@mui/material/colors'
 import HomeIcon from '@mui/icons-material/Home'
+import Typography from '@mui/material/Typography'
 
 function App() {
 	return (
 		<>
-			Hoho
+			<Typography variant="h1" color="text.secondary">
+				Nevi Hoa
+			</Typography>
+			<br />
 			<Button variant="text">Hello world</Button>
 			<Button variant="contained">Hello world</Button>
 			<Button variant="outlined">Hello world</Button>
