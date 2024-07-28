@@ -1,8 +1,19 @@
-# React + Vite
+# Welcome to Trello clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a simple clone of the Trello web application which include frontend and backend.
 
-Currently, two official plugins are available:
+The technologies used in this project (Frontend) include: ReactJs + Vite, Material UI, ...
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```
+The technologies will be updated along the development process
+```
+
+## Layout Analysis
+
+### Trello Random Template:
+
+![Trello random template (accessed 2024)](_docs/template.png)
+
+### Layout Simple Analysis:
+
+![Layout simple analysis](_docs/layout.png)
