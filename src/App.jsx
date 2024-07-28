@@ -6,6 +6,7 @@ import HomeIcon from '@mui/icons-material/Home'
 function App() {
 	return (
 		<>
+			Hoho
 			<Button variant="text">Hello world</Button>
 			<Button variant="contained">Hello world</Button>
 			<Button variant="outlined">Hello world</Button>
