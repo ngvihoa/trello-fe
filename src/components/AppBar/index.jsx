@@ -1,21 +1,16 @@
 import Box from '@mui/material/Box'
 import ModeSelect from '~/components/ModeSelect'
 import AppsIcon from '@mui/icons-material/Apps'
-import trelloLogo from '~/assets/trello.svg?react'
-import trelloText from '~/assets/trello-text.svg?react'
-import SvgIcon from '@mui/material/SvgIcon'
 import IconButton from '@mui/material/IconButton'
-import Workspaces from './Menus/Workspaces'
-import Recent from './Menus/Recent'
-import Starred from './Menus/Starred'
-import Templates from './Menus/Templates'
-import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone'
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
 import Badge from '@mui/material/Badge'
 import Tooltip from '@mui/material/Tooltip'
 import Profile from './Menus/Profile'
+import AppLogo from './AppLogo'
+import Menus from './Menus'
+import ButtonCreate from './Menus/ButtonCreate'
 
 function AppBar() {
 	return (
@@ -26,70 +21,38 @@ function AppBar() {
 				height: (theme) => theme.trello.appBarHeight,
 				display: 'flex',
 				alignItems: 'center',
-				justifyContent: 'space-between'
+				justifyContent: 'space-between',
+				gap: 2,
+				overflowX: 'auto'
 			}}
 		>
-			<Box sx={{ display: 'flex', alignItems: 'center' }}>
-				{/* menu icon */}
+			<Box sx={{ display: 'flex', alignItems: 'center', minWidth: '12.5rem' }}>
 				<IconButton sx={{ borderRadius: 2, padding: 0.75 }}>
 					<AppsIcon sx={{ color: 'primary.main' }} />
 				</IconButton>
-				{/* logo */}
-				<Box
-					px={0.75}
-					sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
-				>
-					<SvgIcon
-						component={trelloLogo}
-						inheritViewBox
-						sx={{ color: 'primary.main' }}
-					/>
-					<SvgIcon
-						component={trelloText}
-						viewBox="-5 -5 232 80"
-						sx={{
-							color: 'primary.main',
-							width: 'auto'
-						}}
-					/>
-				</Box>
-				<Box mx={0.5} sx={{ display: 'flex', alignItems: 'center' }}>
-					{/* workspaces */}
-					<Workspaces />
-					{/* recent */}
-					<Recent />
-					{/* starred */}
-					<Starred />
-					{/* templates */}
-					<Templates />
-				</Box>
-				{/* Create */}
-				<Button
-					variant="contained"
-					sx={{
-						boxShadow: 'none',
-						backgroundColor: 'rgba(0, 0, 0, 0.05)',
-						backdropFilter: 'blur(10px)',
-						color: 'primary.main',
-						'&:hover': {
-							backgroundColor: 'rgba(0, 0, 0, 0.1)',
-							boxShadow: 'inherit'
-						}
-					}}
-				>
-					Create
-				</Button>
+				<AppLogo />
+				<Menus />
+				<ButtonCreate />
 			</Box>
-			<Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
+			<Box
+				sx={{
+					display: 'flex',
+					alignItems: 'center',
+					gap: 0.75
+				}}
+			>
 				<TextField
 					id="outlined-search"
 					type="search"
-					placeholder="Search"
+					label="Search..."
 					size="small"
+					sx={{
+						minWidth: '7.5rem'
+					}}
 				/>
 				<ModeSelect />
 				<IconButton sx={{ padding: 0.75 }}>
-					<Tooltip title="Notification">
+					<Tooltip title="Notifications">
 						<Badge
 							color="secondary"
 							variant="dot"
@@ -102,14 +65,7 @@ function AppBar() {
 				</IconButton>
 				<IconButton sx={{ padding: 0.75 }}>
 					<Tooltip title="Notification">
-						<Badge
-							color="secondary"
-							variant="dot"
-							invisible={false}
-							sx={{ cursor: 'pointer' }}
-						>
-							<HelpOutlineIcon sx={{ color: 'primary.main' }} />
-						</Badge>
+						<HelpOutlineIcon sx={{ color: 'primary.main' }} />
 					</Tooltip>
 				</IconButton>
 				<Profile />

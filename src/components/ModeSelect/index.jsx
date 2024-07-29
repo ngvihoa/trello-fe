@@ -15,20 +15,20 @@ function ModeSelect() {
 	}
 
 	return (
-		<FormControl sx={{ minWidth: 120 }} size="small">
+		<FormControl size="small" sx={{ minWidth: '6.25rem' }}>
 			<Select id="select-mode" value={mode} onChange={handleChange}>
 				<MenuItem value="light">
-					<Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+					<Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
 						<LightModeIcon fontSize="small" /> Light
 					</Box>
 				</MenuItem>
 				<MenuItem value="dark">
-					<Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+					<Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
 						<DarkModeIcon fontSize="small" /> Dark
 					</Box>
 				</MenuItem>
 				<MenuItem value="system">
-					<Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+					<Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
 						<SettingsBrightnessIcon fontSize="small" /> System
 					</Box>
 				</MenuItem>
