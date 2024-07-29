@@ -15,7 +15,7 @@ function ModeSelect() {
 	}
 
 	return (
-		<FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+		<FormControl sx={{ minWidth: 120 }} size="small">
 			<Select id="select-mode" value={mode} onChange={handleChange}>
 				<MenuItem value="light">
 					<Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
