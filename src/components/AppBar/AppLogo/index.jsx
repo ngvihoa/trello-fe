@@ -18,13 +18,13 @@ function AppLogo() {
 				component={trelloLogo}
 				inheritViewBox
 				fontSize="small"
-				sx={{ color: 'primary.main', width: 24 }}
+				sx={{ color: 'white', width: 24 }}
 			/>
 			<SvgIcon
 				component={trelloText}
 				viewBox="-5 -15 232 94"
 				sx={{
-					color: 'primary.main',
+					color: 'white',
 					width: 'auto'
 				}}
 			/>

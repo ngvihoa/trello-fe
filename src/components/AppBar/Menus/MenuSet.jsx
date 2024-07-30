@@ -40,7 +40,7 @@ function MenuSet() {
 				aria-haspopup="true"
 				aria-expanded={open ? 'true' : undefined}
 			>
-				<MenuIcon sx={{ color: 'primary.main' }} />
+				<MenuIcon sx={{ color: 'white' }} />
 			</IconButton>
 			<Menu
 				id="basic-menu-menuset"
@@ -51,6 +51,7 @@ function MenuSet() {
 					'aria-labelledby': 'basic-button-menuset'
 				}}
 			>
+				{/* fix the item color later */}
 				<MenuItem>
 					<Workspaces />
 				</MenuItem>
