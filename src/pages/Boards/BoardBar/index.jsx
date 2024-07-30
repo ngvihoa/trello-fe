@@ -41,7 +41,12 @@ const avatarGroupStyle = {
 	'& .MuiAvatar-root': {
 		width: 34,
 		height: 34,
-		fontSize: 'small'
+		fontSize: 'small',
+		color: 'white',
+		cursor: 'pointer',
+		'&:first-of-type': {
+			backgroundColor: '#a4b0be'
+		}
 	}
 }
 
