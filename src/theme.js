@@ -1,5 +1,4 @@
 import { experimental_extendTheme as extendTheme } from '@mui/material/styles'
-import { cyan, deepOrange, orange, teal } from '@mui/material/colors'
 
 const theme = extendTheme({
 	trello: {
@@ -8,51 +7,36 @@ const theme = extendTheme({
 	},
 	colorSchemes: {
 		light: {
-			palette: {
-				primary: teal,
-				secondary: deepOrange
-			}
+			palette: {}
 		},
 		dark: {
-			palette: {
-				primary: cyan,
-				secondary: orange
-			}
+			palette: {}
 		}
 	},
 	components: {
 		MuiButton: {
 			styleOverrides: {
 				root: {
-					textTransform: 'none'
+					textTransform: 'none',
+					borderWidth: '0.5px'
 				}
 			}
 		},
 		MuiInputLabel: {
 			styleOverrides: {
-				root: ({ theme }) => ({
-					color: theme.palette.primary.main,
+				root: {
 					fontSize: '0.875rem'
-				})
+				}
 			}
 		},
 		MuiOutlinedInput: {
 			styleOverrides: {
-				root: ({ theme }) => ({
-					color: theme.palette.primary.main,
+				root: {
 					fontSize: '0.875rem',
-					'.MuiOutlinedInput-notchedOutline': {
-						borderColor: theme.palette.primary.light
-					},
-					'&:hover': {
-						'.MuiOutlinedInput-notchedOutline': {
-							borderColor: theme.palette.primary.main
-						}
-					},
-					'& fieldset': {
-						borderWidth: '1px !important'
-					}
-				})
+					'& fieldset': { borderWidth: '0.5px !important' },
+					'&:hover fieldset': { borderWidth: '1px !important' },
+					'&.Mui-focused fieldset': { borderWidth: '1px !important' }
+				}
 			}
 		},
 		MuiCssBaseline: {
@@ -64,10 +48,10 @@ const theme = extendTheme({
 					},
 					'*::-webkit-scrollbar-thumb': {
 						borderRadius: '0.5rem',
-						backgroundColor: '#bdc3c7'
+						backgroundColor: '#dcdde1'
 					},
 					'*::-webkit-scrollbar-thumb:hover': {
-						backgroundColor: '#00b894'
+						backgroundColor: 'white'
 					}
 				}
 			}

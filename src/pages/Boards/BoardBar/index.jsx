@@ -20,13 +20,13 @@ import AvatarImg8 from '~/assets/avatar8.jpg'
 import PersonAddIcon from '@mui/icons-material/PersonAdd'
 
 const chipStyle = {
-	color: 'primary.main',
-	backgroundColor: 'white',
+	color: 'white',
+	backgroundColor: 'transparent',
 	border: 'none',
 	paddingX: 0.5,
 	borderRadius: 1,
-	'& .MuiSvgIcon-root': {
-		color: 'primary.main',
+	'.MuiSvgIcon-root': {
+		color: 'white',
 		'.MuiChip-label': {
 			fontSize: '0.875rem'
 		}
@@ -56,12 +56,20 @@ function BoardBar() {
 				justifyContent: 'space-between',
 				gap: 2,
 				overflowX: 'auto',
-				borderTop: '1px solid #00bfa5',
-				paddingX: 1
+				borderBottom: '1px solid white',
+				paddingX: 1,
+				backgroundColor: (theme) =>
+					theme.palette.mode === 'dark' ? '#34495e' : '#1976d2'
 			}}
 		>
-			<Box sx={{ display: 'flex', alignItems: 'center', minWidth: '44.75rem' }}>
-				<Box sx={{ display: 'flex', alignItems: 'center' }}>
+			<Box
+				sx={{
+					display: 'flex',
+					alignItems: 'center',
+					minWidth: 'fit-content'
+				}}
+			>
+				<Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
 					<Chip
 						clickable
 						sx={chipStyle}
@@ -132,10 +140,13 @@ function BoardBar() {
 					sx={{
 						boxShadow: 'none',
 						backdropFilter: 'blur(10px)',
-						color: 'primary.main',
-						padding: 1,
+						color: 'white',
 						marginLeft: 0.5,
-						minWidth: 'fit-content'
+						minWidth: 'fit-content',
+						borderColor: 'white',
+						'&:hover': {
+							borderColor: 'white'
+						}
 					}}
 					startIcon={<PersonAddIcon fontSize="small" />}
 				>
