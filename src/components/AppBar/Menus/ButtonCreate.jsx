@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button'
-import AddIcon from '@mui/icons-material/Add'
-import { Typography } from '@mui/material'
+import Typography from '@mui/material/Typography'
+import AddToPhotosIcon from '@mui/icons-material/AddToPhotos'
 
 function ButtonCreate() {
 	return (
@@ -20,10 +20,17 @@ function ButtonCreate() {
 				minWidth: 'fit-content'
 			}}
 		>
-			<Typography sx={{ display: { xs: 'none', md: 'block' } }}>
+			<Typography
+				sx={{
+					display: { xs: 'none', md: 'block' },
+					fontSize: '0.875rem',
+					marginRight: 0.5,
+					fontWeight: 500
+				}}
+			>
 				Create
 			</Typography>
-			<AddIcon fontSize="small" sx={{ display: { xs: 'block', md: 'none' } }} />
+			<AddToPhotosIcon fontSize="small" />
 		</Button>
 	)
 }

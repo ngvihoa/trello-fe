@@ -15,7 +15,6 @@ import ButtonCreate from './Menus/ButtonCreate'
 function AppBar() {
 	return (
 		<Box
-			px={1}
 			sx={{
 				width: '100%',
 				height: (theme) => theme.trello.appBarHeight,
@@ -23,7 +22,8 @@ function AppBar() {
 				alignItems: 'center',
 				justifyContent: 'space-between',
 				gap: 2,
-				overflowX: 'auto'
+				overflowX: 'auto',
+				paddingX: 1
 			}}
 		>
 			<Box sx={{ display: 'flex', alignItems: 'center', minWidth: '12.5rem' }}>
