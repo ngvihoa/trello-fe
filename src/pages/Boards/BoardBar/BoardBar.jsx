@@ -18,6 +18,7 @@ import AvatarImg6 from '~/assets/avatar6.jpg'
 import AvatarImg7 from '~/assets/avatar7.jpg'
 import AvatarImg8 from '~/assets/avatar8.jpg'
 import PersonAddIcon from '@mui/icons-material/PersonAdd'
+import { capitalizeFirstLetter } from '~/utils/formatter'
 
 const chipStyle = {
 	color: 'white',
@@ -50,7 +51,7 @@ const avatarGroupStyle = {
 	}
 }
 
-function BoardBar() {
+function BoardBar({ board }) {
 	return (
 		<Box
 			sx={{
@@ -78,13 +79,13 @@ function BoardBar() {
 						clickable
 						sx={chipStyle}
 						icon={<DashboardIcon />}
-						label="Nevi Hoa Fullstack"
+						label={board?.title}
 					/>
 					<Chip
 						clickable
 						sx={chipStyle}
 						icon={<VpnLockIcon />}
-						label="Public/Private Workspace"
+						label={capitalizeFirstLetter(board.type)}
 					/>
 					<Chip
 						clickable
