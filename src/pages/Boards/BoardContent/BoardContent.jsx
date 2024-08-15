@@ -7,13 +7,26 @@ import {
 	TouchSensor,
 	PointerSensor,
 	useSensor,
-	useSensors
+	useSensors,
+	DragOverlay,
+	defaultDropAnimationSideEffects
 } from '@dnd-kit/core'
 import { useEffect, useState } from 'react'
 import { arrayMove } from '@dnd-kit/sortable'
+import Column from './ListColumns/Column/Column'
+import Card from './ListColumns/Column/ListCards/Card/Card'
+
+const ACTIVE_DRAG_ITEM_TYPE = {
+	COLUMN: 'ACTIVE_DRAG_ITEM_TYPE_COLUMN',
+	CARD: 'ACTIVE_DRAG_ITEM_TYPE_CARD'
+}
 
 function BoardContent({ board }) {
 	const [orderedColumns, setOrderedColumns] = useState([])
+	// only 1 object is active when being dragged - column or card
+	// const [activeDragItemId, setActiveDragItemId] = useState(null)
+	const [activeDragItemType, setActiveDragItemType] = useState(null)
+	const [activeDragItemData, setActiveDragItemData] = useState(null)
 
 	const mouseSensor = useSensor(MouseSensor, {
 		activationConstraint: { distance: 10 }
@@ -34,6 +47,17 @@ function BoardContent({ board }) {
 		setOrderedColumns(mapOrder(board?.columns, board?.columnOrderIds, '_id'))
 	}, [board])
 
+	// Trigger when start dragging
+	const handleDragStart = (e) => {
+		setActiveDragItemData(e?.active?.data?.current)
+		setActiveDragItemType(
+			e?.active?.data?.current?.columnId
+				? ACTIVE_DRAG_ITEM_TYPE.CARD
+				: ACTIVE_DRAG_ITEM_TYPE.COLUMN
+		)
+	}
+
+	// Trigger after dropping item
 	const handleDragEnd = (e) => {
 		const { active, over } = e
 		if (!over) return
@@ -45,6 +69,16 @@ function BoardContent({ board }) {
 			// const newOrderedColumnIds = newOrderedColumns.map((c) => c._id)
 			setOrderedColumns(newOrderedColumns)
 		}
+
+		setActiveDragItemData(null)
+		setActiveDragItemType(null)
+	}
+
+	// setup animation when dropping item
+	const dropAnimation = {
+		sideEffects: defaultDropAnimationSideEffects({
+			styles: { active: { opacity: 0.5 } }
+		})
 	}
 
 	return (
@@ -57,8 +91,23 @@ function BoardContent({ board }) {
 				p: 1.25
 			}}
 		>
-			<DndContext onDragEnd={handleDragEnd} sensors={sensors}>
+			<DndContext
+				onDragStart={handleDragStart}
+				onDragEnd={handleDragEnd}
+				sensors={sensors}
+			>
 				<ListColumns columns={orderedColumns} />
+				<DragOverlay dropAnimation={dropAnimation}>
+					{!activeDragItemType && null}
+					{activeDragItemType &&
+						activeDragItemType == ACTIVE_DRAG_ITEM_TYPE.COLUMN && (
+							<Column column={activeDragItemData} />
+						)}
+					{activeDragItemType &&
+						activeDragItemType == ACTIVE_DRAG_ITEM_TYPE.CARD && (
+							<Card card={activeDragItemData} />
+						)}
+				</DragOverlay>
 			</DndContext>
 		</Box>
 	)
