@@ -2,7 +2,7 @@
 
 This project is a simple clone of the Trello web application which include frontend and backend.
 
-The technologies used in this project (Frontend) include: `ReactJs` + `Vite`, `Material UI`, ...
+The technologies used in this project (Frontend) include: `ReactJs` + `Vite`, `Material UI`, `TailwindCSS`, `DnD-kit`, ...
 
 `The technologies will be updated along the development process`
 
